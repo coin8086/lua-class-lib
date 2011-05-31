@@ -2,6 +2,7 @@
 -- Lua Class Lib
 --
 -- Author: Robert Ray <louirobert@gmail.com> @ 2011
+-- Home Page: http://code.google.com/p/lua-class-lib/
 -- Licence: MIT
 -- Version: 0.1
 --
