@@ -1,4 +1,4 @@
-#summary A quick start guide for the lib.
+#summary A quick start guide for Lua Class
 
 =Class Definition and Instantiation=
 {{{
