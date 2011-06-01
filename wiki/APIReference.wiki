@@ -7,7 +7,7 @@
 
 *Summary*
 
- Define a class in the environment of calling function.
+ Define a class in the environment of the calling function.
 
 *Examples*
  __
@@ -45,7 +45,7 @@ class 'myclass2: parent1, parent2' ...
  In fact, calling _class_ doesn't really define a class, but only do halfway by returning a closure. The closure takes a single table parameter, which is the class definition body, and returns a [APIReference#Class_Object Class Object] finally. See [APIReference#Class_Closure Class Closure] for details.
 
 
-= Class Closure =
+= _Class Closure_ =
 *Type*
 
  closure
@@ -80,7 +80,7 @@ class 'myclass1'
 
  * A [APIReference#Class_Object Class Object]
 
-= Class Object =
+= _Class Object_ =
 
 *Type*
 
