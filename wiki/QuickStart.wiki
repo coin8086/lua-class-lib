@@ -27,9 +27,9 @@ My worker id is 100.
 = Inheritance and Polymorphism =
 
 {{{
---require 'cls'
+require 'cls'
 
---class 'Worker' ...
+--class 'Worker' ... defined as above
 
 class 'Person'
 {
