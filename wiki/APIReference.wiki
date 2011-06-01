@@ -1,0 +1,80 @@
+#summary Module APIs' details
+
+= class =
+*Type*
+
+ function
+
+*Summary*
+
+ Define a class in the environment of calling function.
+
+*Parameters:*
+
+ * A single string containing a name list
+
+ To define a class without a parent, put a single class name in the list, like
+{{{
+'myclass'
+}}}
+
+ To inherit from other classes, list these classes' names after a '*:*' following the class name, separated by '*,*', like 
+{{{
+'subclass: parent1, parent2'
+}}}
+
+ Spaces before/after ':' and ',' will be trimed.
+
+ Note that a valid class name starts with a letter followed by zero or more characters of letter, number and underscore '`_`'. It has the following pattern
+{{{
+'[a-zA-Z][a-zA-Z0-9_]*'
+}}}
+
+
+*Return:*
+
+ * A [APIReference#Class_Closure Class Closure]
+
+ In fact, calling _class_ doesn't really define a class, but only do halfway by returning a closure. The closure takes a single table parameter, which is the class definition body, and returns a [APIReference#Class_Object Class Object] finally. See [APIReference#Class_Closure Class Closure] for details.
+
+
+= Class Closure =
+*Type*
+
+closure
+
+*Summary*
+
+ A halfway class defining closure, returning a Class Object when called with a class definition table.
+
+*Parameters:*
+
+ * A single table as a class definition body
+
+*Return:*
+
+ * A Class Object
+
+= Class Object =
+
+*Type*
+
+ table
+
+*Summary*
+
+*Parameters:*
+
+*Return:*
+
+= isInstanceOf =
+
+*Type*
+
+ function
+
+*Summary*
+
+*Parameters:*
+
+*Return:*
