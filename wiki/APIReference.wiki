@@ -1,5 +1,6 @@
 #summary Module APIs' details
 
+= Index =
 <wiki:toc max_depth="1" />
 
 = class =
