@@ -9,7 +9,14 @@
 
  Define a class in the environment of calling function.
 
-*Parameters:*
+*Examples*
+ __
+{{{
+class 'myclass1' ...
+class 'myclass2: parent1, parent2' ...
+}}}
+
+*Parameters*
 
  * A single string containing a name list
 
@@ -31,7 +38,7 @@
 }}}
 
 
-*Return:*
+*Return*
 
  * A [APIReference#Class_Closure Class Closure]
 
@@ -41,19 +48,37 @@
 = Class Closure =
 *Type*
 
-closure
+ closure
 
 *Summary*
 
- A halfway class defining closure, returning a Class Object when called with a class definition table.
+ A halfway class definition closure, returned by a _[APIReference#class class]_ call, and returning a [APIReference#Class_Object Class Object] when called with a class definition table.
 
-*Parameters:*
+*Examples*
+ __
+{{{
+class 'myclass1' 
+{
+    __init__ = function(self, x, y, z)
+        self.x = x
+        --...
+    end;
+
+    foo = function(self)
+        --...
+    end;
+
+    --...
+}
+}}}
+
+*Parameters*
 
  * A single table as a class definition body
 
-*Return:*
+*Return*
 
- * A Class Object
+ * A [APIReference#Class_Object Class Object]
 
 = Class Object =
 
@@ -63,9 +88,9 @@ closure
 
 *Summary*
 
-*Parameters:*
+*Parameters*
 
-*Return:*
+*Return*
 
 = isInstanceOf =
 
@@ -75,6 +100,6 @@ closure
 
 *Summary*
 
-*Parameters:*
+*Parameters*
 
-*Return:*
+*Return*
