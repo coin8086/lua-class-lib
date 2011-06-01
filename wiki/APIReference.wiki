@@ -42,7 +42,7 @@ class 'myclass2: parent1, parent2' ...
 
  * A [APIReference#Class_Closure Class Closure]
 
- In fact, calling _class_ doesn't really define a class, but only do halfway by returning a closure. The closure takes a single table parameter, which is the class definition body, and returns a [APIReference#Class_Object Class Object] finally. See [APIReference#Class_Closure Class Closure] for details.
+ In fact, calling _class_ doesn't really define a class, but only do halfway by returning a closure. The closure takes a single table parameter, which is the class definition body, and defines a [APIReference#Class_Object Class Object] finally. See [APIReference#Class_Closure Class Closure] for details.
 
 
 = _Class Closure_ =
@@ -52,19 +52,19 @@ class 'myclass2: parent1, parent2' ...
 
 *Summary*
 
- A halfway class definition closure, returned by a _[APIReference#class class]_ call, and returning a [APIReference#Class_Object Class Object] when called with a class definition table.
+ A halfway class definition closure, returned by a _[APIReference#class class]_ call, and defining a [APIReference#Class_Object Class Object] in the environment of the previous _[APIReference#class class]_ call when called with a class definition table.
 
 *Examples*
  __
 {{{
 class 'myclass1' 
 {
-    __init__ = function(self, x, y, z)
+    __init__ = function(self, x, y, z)  --initializer 
         self.x = x
         --...
     end;
 
-    foo = function(self)
+    foo = function(self)  --method
         --...
     end;
 
@@ -72,13 +72,17 @@ class 'myclass1'
 }
 }}}
 
+ class 'myclass1' returns a Class Closure, which takes a following table as argument and defines a [APIReference#Class_Object Class Object] bound to variable myclass1 in the environment of _[APIReference#class class]_' calling function.
+
 *Parameters*
 
  * A single table as a class definition body
 
+ Class members, such as initializer and methods, as well as attributes, go in the table.
+
 *Return*
 
- * A [APIReference#Class_Object Class Object]
+ Nothing
 
 = _Class Object_ =
 
@@ -88,9 +92,33 @@ class 'myclass1'
 
 *Summary*
 
+ A table defined by a [APIReference#Class_Closure Class Closure] call. In fact, it's exactly the same table that is passed as an argument to the [APIReference#Class_Closure Class Closure] call, but with a metatable set by Lua Class lib, which makes it be able to be called as a constructor to create new objects of the class.
+
+*Examples*
+ __
+{{{
+class 'MyClass1' 
+{
+    __init__ = function(self, x, y)  --initializer 
+        self.x = x
+        self.y = y
+    end;
+
+    --...
+}
+
+obj = MyClass1(1, 2)
+assert(type(MyClass1) == 'table')
+assert(type(MyClass1.__init__) == 'function')
+}}}
+
 *Parameters*
 
+ When called as function, a Class Object internally calls the __init__ function defined in its class body, passing the class instance as the first argument along with all arguments it receives, and returns a new instance. If no __init__ is defined, then it ignores arguments and just returns a new instance.
+
 *Return*
+
+ A class instance
 
 = isInstanceOf =
 
