@@ -1,5 +1,7 @@
 #summary Module APIs' details
 
+<wiki:toc max_depth="1" />
+
 = class =
 *Type*
 
@@ -120,6 +122,7 @@ assert(type(MyClass1.__init__) == 'function')
 
  A class instance
 
+
 = isInstanceOf =
 
 *Type*
@@ -127,6 +130,37 @@ assert(type(MyClass1.__init__) == 'function')
  function
 
 *Summary*
+
+*Examples*
+
+*Parameters*
+
+*Return*
+
+= getClass =
+
+*Type*
+
+ function
+
+*Summary*
+
+*Examples*
+
+*Parameters*
+
+*Return*
+
+
+= getBaseClasses =
+
+*Type*
+
+ function
+
+*Summary*
+
+*Examples*
 
 *Parameters*
 
