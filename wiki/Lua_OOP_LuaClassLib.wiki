@@ -1,0 +1,52 @@
+#summary Lua OOP and Lua Class Lib's Design and Implementation
+
+= Introduction =
+
+Why Lua Class Lib? Why Lua? Why OOP? Just for fun, relax! Let's take an interesting tour to OOP in Lua.
+
+
+= Content =
+== A Long Story About OOP in Lua ==
+
+Lua is cool! "But it lacks for full support for OOP!" you may argue that. Sure, I agree with you, if your standard for OOP is just a 'class' key word or something alike, which may disappoint you when you do a full search of that word in Lua official document and only find something totally unrelated! The fact is exactly that. However, there's more.
+
+Let's drop those superficial forms of OOP and be after its essence: what on earth an object is? In concept, it's just something that has status and behavior. In implementation, an object's status is usually kept in some properties on it, and its behavior is usually defined by some methods on it. That's it!
+
+According to that definition, a Lua table is just a good implementation of that OO concept:
+{{{
+t = {}                                           --t is an object
+t.status = 100                                   --t has some property
+t.method = function(self) print self.status end  --also some method
+}}}
+
+"But what about the class?" you may ask. Good question! But first let's make it clear: what on earth does a 'class' mean? In concept, it simply means a category: objects in the same category have something in common. In implementation, it usually means some support to create a bunch of objects of the same category.
+
+According to that definition, the object t in above code do have a class: an anonymous category in concept. You can create another object in that conceptual 'class' as:
+{{{
+t2 = {}                                           --t2 is another object of the same 'class' as t
+t2.status = 101                                   --t2 has a different status
+t2.method = function(self) print self.status end  --and the same method
+}}}
+
+Or, for convenient:
+{{{
+function create(status)
+    o = {}
+    o.status = status
+    o.method = function(self) print self.status end
+    return o
+end
+
+t1 = create(100)
+t2 = create(101)
+}}}
+
+
+
+
+
+
+
+
+
+(to be continued...)
