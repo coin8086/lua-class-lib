@@ -134,9 +134,9 @@ assert(isInstanceOf(c, B))
 assert(isInstanceOf(c, C))
 }}}
 
-The _class_ in above code is really a user defined function to do all the magic, and it's not a keyword in the language! Really cool, isn't it? Thanks to the power of the Lua language, it's not too hard to achieve this. 
+The _class_ in above code is really a user defined function to do all the magic, and it's not a keyword in the language! Really cool, isn't it? Thanks to the power of the Lua language, it's not too hard to achieve this. (For details of the _class_ function and other APIs see http://code.google.com/p/lua-class-lib/wiki/APIReference)
 
-I guess you're eager to know how further, but before we move on, I suggest you download the lib and have a look at its source. Believe it or not: it's surprisingly short(no more than 100 lines totally, including comments and empty lines)! Let's say it again: Lua is cool!
+I guess you're eager to know how, but before we move on, I suggest you download the lib and have a look at its source. Believe it or not: it's surprisingly short(no more than 100 lines totally, including comments and empty lines)! Let's say it again: Lua is cool!
 
 == Design and Implementation ==
 Lua doesn't provide a class keyword and something alike as in other OO languages do, but Lua grants you much power to shape your own OO system. The Lua Class Lib is just an example on how you can shape it. And it's also supposed to give you an idea about how you can use the powerful language.
