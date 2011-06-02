@@ -1,6 +1,6 @@
 #summary Lua OOP and Lua Class Lib's Design and Implementation
 
-_(This article presumes readers have a basic knowledge on Lua. And to understand [Lua_OOP_LuaClassLib#Design_and_Implementation Design and Implementation], a good knowledge is required.)_
+_(This article presumes readers have a basic knowledge on Lua. And to understand the last part, "Design and Implementation", a good Lua knowledge is required and some knowledge on Python OOP is a plus.)_
 
 = Index =
 <wiki:toc max_depth="3" />
@@ -8,7 +8,6 @@ _(This article presumes readers have a basic knowledge on Lua. And to understand
 Why Lua Class Lib? Why Lua? Why OOP? Just for fun, relax! Let's take an interesting tour to OOP in Lua.
 
 = A Long Story About OOP in Lua =
-
 Lua is cool! "But it lacks for full support for OOP!" you may argue that. Sure, I agree with you, if your standard for OOP is just a 'class' key word or something alike, which may disappoint you when you do a full search of that word in Lua official document and only find something totally unrelated! The fact is exactly that. However, there's more.
 
 == Object ==
