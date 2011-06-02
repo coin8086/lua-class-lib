@@ -4,8 +4,8 @@
 -- Author: Robert Ray <louirobert@gmail.com> @ 2011
 -- Home Page: http://code.google.com/p/lua-class-lib/
 -- Licence: MIT
--- Version: 0.1
---
+-- Version: 0.11
+-- Note: See home page for document and update!
 -----------------------------------------------------------------------------
 
 module(..., package.seeall)
@@ -53,7 +53,9 @@ function class(name)
                 end
             end
         end
-        env[clsName] = setmetatable(t, meta)
+        local clsobj = setmetatable(t, meta)
+        env[clsName] = clsobj
+        return clsobj
     end
 end
 
