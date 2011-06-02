@@ -10,6 +10,7 @@ Why Lua Class Lib? Why Lua? Why OOP? Just for fun, relax! Let's take an interest
 
 Lua is cool! "But it lacks for full support for OOP!" you may argue that. Sure, I agree with you, if your standard for OOP is just a 'class' key word or something alike, which may disappoint you when you do a full search of that word in Lua official document and only find something totally unrelated! The fact is exactly that. However, there's more.
 
+=== Object ===
 Let's drop those superficial forms of OOP and be after its essence: what on earth an object is? In concept, it's just something that has status and behavior. In implementation, an object's status is usually kept in some properties on it, and its behavior is usually defined by some methods on it. That's it!
 
 According to that definition, a Lua table is just a good implementation of that OO concept:
@@ -19,30 +20,58 @@ t.status = 100                                   --t has some property
 t.method = function(self) print self.status end  --also some method
 }}}
 
-"But what about the class?" you may ask. Good question! But first let's make it clear: what on earth does a 'class' mean? In concept, it simply means a category: objects in the same category have something in common. In implementation, it usually means some support to create a bunch of objects of the same category.
+=== Class ===
+"But what about the class?" you may ask. Good question! But first let's make it clear: what on earth does a 'class' mean? In concept, it simply means a category: objects in the same category have something in common. In implementation, it usually means some way to create an object of a category.
 
-According to that definition, the object t in above code do have a class: an anonymous category in concept. You can create another object in that conceptual 'class' as:
+According to that definition, the object t in above code does have a class: an anonymous category in concept. You can create another object in that conceptual 'class' as:
 {{{
 t2 = {}                                           --t2 is another object of the same 'class' as t
 t2.status = 101                                   --t2 has a different status
 t2.method = function(self) print self.status end  --and the same method
 }}}
 
-Or, for convenient:
+Or, make the code reusable:
 {{{
-function create(status)
+function createA(status)
     o = {}
     o.status = status
     o.method = function(self) print self.status end
     return o
 end
 
-t1 = create(100)
-t2 = create(101)
+t1 = createA(100)
+t2 = createA(101)
 }}}
 
+=== Inheritance ===
+"But what about inheritance?" Again, let's first make the concept clear: what's inheritance? In concept, it means some relationship among classes: class A inheriting class B usually means A has something in common with B, and thus objects of class A behave much like those of class B. In implementation, it usually means some code organization.
 
+Having that in mind, we can say t3 has a conceptual class which inherits t2's in the following code:
+{{{
+t3 = {}                                           
+t3.status = 10000                                 
+t3.method = function(self) print self.status end  
+t3.anotherStatus = 'hello'
+t3.anotherMethod = function(self, n) self.status = self.status + n end
+}}}
 
+We can make the code reusable as:
+{{{
+function createB(status, anotherStatus)
+    o = createA(status)
+    o.anotherStatus = anotherStatus
+    o.anotherMethod = function(self, n) self.status = self.status + n end
+    return o
+end
+t3 = createB(10000, 'hello')
+}}}
+
+That's most of the story about OOP in Lua. Not so appealing? I know you want more. See the next!
+
+= Lua Class Lib =
+_(From now on you have to get a basic knowledge on Lua to understand what happens behind the scenes.)_
+
+"But I want a more good-looking way for OOP in Lua, such as XXX language, it's more friendly." I heard your complains, and I guess XXX language usually refers to such as C++, C#, Java, or Python, etc.
 
 
 
