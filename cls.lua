@@ -4,7 +4,7 @@
 -- Author: Robert Ray <louirobert@gmail.com> @ 2011
 -- Home Page: http://code.google.com/p/lua-class-lib/
 -- Licence: MIT
--- Version: 0.11
+-- Version: 0.12
 -- Note: See home page for document and update!
 -----------------------------------------------------------------------------
 
@@ -40,7 +40,7 @@ function class(name)
     local env = getfenv(2)
     local clsName, bases = parseName(name)
     for i, v in ipairs(bases) do
-        bases[i] = env[v]   --Replace string name with class table
+        bases[i] = assert(env[v])   --Replace string name with class table
     end
 
     return function (t)
