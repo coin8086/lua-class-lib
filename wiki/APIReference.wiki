@@ -31,18 +31,18 @@ class 'myclass2: parent1, parent2' ...
 }}}
  Spaces before/after ':' and ',' will be trimed.
 
-  _Note: The base classes must be 'visible' at the point that a subclass is defining._
+  _Note: The base classes *must* be 'visible' at the point that a subclass is defining._
 
  A valid class name starts with a letter followed by zero or more characters of letter, number and underscore '`_`'. It has the following pattern
 {{{
 '[a-zA-Z][a-zA-Z0-9_]*'
 }}}
- An exception will be raised if an invalid name list string is passed in.
+ An exception will be raised if an invalid name is used.
 
 *Return*
  * A [APIReference#Class_Closure Class Closure]
 
- In fact, calling _class_ doesn't really define a class, but only do halfway by returning a closure. The closure takes a single table parameter, which is the class definition body, and defines a [APIReference#Class_Object Class Object] finally. See [APIReference#Class_Closure Class Closure] for details.
+ In fact, calling _class_ doesn't really define a class, but only do halfway by returning a closure. The closure takes a single table argument, which is the class definition body, and defines a [APIReference#Class_Object Class Object] finally. See [APIReference#Class_Closure Class Closure] for details.
 
 
 = _Class Closure_ =
@@ -70,7 +70,7 @@ class 'myclass1'
 }
 }}}
 
- class 'myclass1' returns a Class Closure, which takes a following table as argument and defines a [APIReference#Class_Object Class Object] bound to variable myclass1 in the environment of _[APIReference#class class]_' calling function.
+ class 'myclass1' returns a Class Closure, which takes a following table as an argument and defines a [APIReference#Class_Object Class Object] bound to variable myclass1 in the environment of the function that calls _[APIReference#class class]_.
 
 *Parameters*
  * A single table as a class definition body
@@ -100,6 +100,7 @@ class 'MyClass1'
 
     --...
 }
+--At this point a Class Object MyClass1 has been defined
 
 obj = MyClass1(1, 2)
 assert(type(MyClass1) == 'table')
@@ -137,7 +138,7 @@ assert(!isInstanceOf(a, B))
  * an instance
  * a [APIReference#Class_Object Class Object]
 
- An exception may be raised when an instance or [APIReference#Class_Object Class Object] argument is invalid.
+ An exception will be raised when an instance or [APIReference#Class_Object Class Object] argument is invalid.
 
 *Return*
  * true or false
@@ -171,7 +172,7 @@ assert(C == A)
  function
 
 *Summary*
- Get the base classes' [APIReference#Class_Object Class Object] of a subclass.
+ Get the base classes's [APIReference#Class_Object Class Object] of a subclass.
 
 *Examples*
  __
@@ -189,4 +190,4 @@ assert(#bases == 2)
  * a [APIReference#Class_Object Class Object]
 
 *Return*
- * An array of base classes' [APIReference#Class_Object Class Object], in the order that they're inherited in a subclass. It's empty when a class has no base class.
+ * An array of base classes's [APIReference#Class_Object Class Object], in the order that they're inherited in a subclass. It's empty when a class has no base class.
