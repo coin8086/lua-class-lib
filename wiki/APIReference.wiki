@@ -31,7 +31,7 @@ class 'myclass2: parent1, parent2' ...
 }}}
  Spaces before/after ':' and ',' will be trimed.
 
-  _Note: The base classes *must* be 'visible' at the point that a subclass is defining._
+  _Note: The base classes *must* be 'visible' at the point that a subclass is defining, or an exception will be raised._
 
  A valid class name starts with a letter followed by zero or more characters of letter, number and underscore '`_`'. It has the following pattern
 {{{
@@ -50,12 +50,12 @@ class 'myclass2: parent1, parent2' ...
  closure
 
 *Summary*
- A halfway class definition closure, returned by a _[APIReference#class class]_ call, and defining a [APIReference#Class_Object Class Object] in the environment of the previous _[APIReference#class class]_ call when called with a class definition table.
+ A halfway class definition closure, returned by a _[APIReference#class class]_ call. It takes a single table argument as a class definition body, and defines a [APIReference#Class_Object Class Object] in the environment of the previous _[APIReference#class class]_ call. The [APIReference#Class_Object Class Object] is also returned.
 
 *Examples*
  __
 {{{
-class 'myclass1' 
+class 'MyClass1' 
 {
     __init__ = function(self, x, y, z)  --initializer 
         self.x = x
@@ -68,9 +68,11 @@ class 'myclass1'
 
     --...
 }
+--At this point a Class Object, MyClass1, has been defined 
+--in the environment of the function calling "class 'MyClass1'"
 }}}
 
- class 'myclass1' returns a Class Closure, which takes a following table as an argument and defines a [APIReference#Class_Object Class Object] bound to variable myclass1 in the environment of the function that calls _[APIReference#class class]_.
+ class 'MyClass1' returns a Class Closure, which takes a following table as an argument and defines a [APIReference#Class_Object Class Object] bound to variable MyClass1 in the environment of the function that calls _[APIReference#class class]_.
 
 *Parameters*
  * A single table as a class definition body
@@ -78,7 +80,7 @@ class 'myclass1'
  Class members, such as initializer and methods, as well as attributes, go in the table.
 
 *Return*
- Nothing
+ * A [APIReference#Class_Object Class Object]
 
 = _Class Object_ =
 
@@ -100,7 +102,7 @@ class 'MyClass1'
 
     --...
 }
---At this point a Class Object MyClass1 has been defined
+--At this point a Class Object, MyClass1, has been defined.
 
 obj = MyClass1(1, 2)
 assert(type(MyClass1) == 'table')
