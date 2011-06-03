@@ -46,7 +46,7 @@ t2 = createA(101)
 == Inheritance ==
 "But what about inheritance?" Again, let's first make the concept clear: what's inheritance? In concept, it means some relationship among classes: class A inheriting class B usually means A has something in common with B, and thus objects of class A behave much like those of class B. In implementation, it usually means some code organization.
 
-Having that in mind, we can say t3 has a conceptual class which inherits t2's in the following code:
+Having that in mind, we can say t3 in the following code has a conceptual class which inherits t2's:
 {{{
 t3 = {}                                           
 t3.status = 10000                                 
@@ -149,7 +149,7 @@ The lib is inspired by and modeled on Python OOP(Although the two languages are 
  * The class definition and instantiation 'grammar' should be intuitive and simple.
  * Keep all simple.
 
-Here is all the code behind the scenes:
+Here is the code behind the scenes:
 {{{
 local function parseName(str)
     local _begin, _end, cls = assert(str:find('%s*([a-zA-Z][a-zA-Z0-9_]*)%s*%:?'))
@@ -201,6 +201,6 @@ end
 
 The code is short, but delicate, deserving a good read. 
 
-Note that it just demonstrates a minimal(possibly adequate) OO system's implementation, and there's always room to improve or extend it. However, before you extend it, ask yourself "Do I really require that extension?" and "Will the extension make the whole system too complicated?" Have fun!
+Note that it just demonstrates a minimal(possibly adequate) OO system's implementation, and there's always room to improve and extend. However, before you extend it, ask yourself "Do I really require that extension?" and "Will the extension make the whole system too complicated?" Have fun!
 
-Sorry I can't say more about it, for the reason of time. But after all, the code itself speaks.
+Sorry I can't say more, for the reason of time. But after all, the code itself speaks.
