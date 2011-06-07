@@ -71,3 +71,6 @@ Hello, my name is Bob.
 My salary is 1000.
 My worker id is 1.
 }}}
+
+=Next=
+See http://code.google.com/p/lua-class-lib/wiki/APIReference for API details, and http://code.google.com/p/lua-class-lib/wiki/Lua_OOP_LuaClassLib for a more deep analysis on OOP in Lua.
