@@ -1,7 +1,7 @@
 # lua-class-lib
 A "class" keyword to Lua 5.1!
 
-Lua Class Lib is an OOP tool for Lua. It includes a class 'keyword' to aid you in the OOP stuff for Lua in an intuitive and simple manner. It's inspired by Python but in a Lua idiom, so you may feel comfortable if you're familiar with Python. It's deadly simple and intuitive. 
+Lua Class Lib is an OOP tool for Lua. It provides a class 'keyword' to help you do OOP in Lua in an intuitive way. It's similar to OOP in Python but in Lua idiom. So you may feel familiar if you know Python. However you're not required to know Python to use it.
 
 # Class Definition and Instantiation
 ```
