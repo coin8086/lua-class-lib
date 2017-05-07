@@ -1,3 +1,5 @@
+_See my blog post http://huiming.io/2011/06/01/lua-oop.html for more on OOP in Lua and the lib._
+
 # lua-class-lib
 A "class" keyword to Lua 5.1!
 
@@ -76,4 +78,4 @@ My worker id is 1.
 ```
 
 # Next
-See https://github.com/coin8086/lua-class-lib/wiki/API-Reference for API details, and https://github.com/coin8086/lua-class-lib/wiki/Lua-and-OOP for a deeper view on OOP and Lua.
+See https://github.com/coin8086/lua-class-lib/wiki/API-Reference for API details.
